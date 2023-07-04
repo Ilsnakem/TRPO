@@ -1,0 +1,6 @@
+body { color: rgb(73, 73, 73); 
+    background: rgb(208, 208, 208); 
+    margin-left: 10%; margin-right: 10%; 
+    font-family: Verdana, sans-serif; }
+input { margin:10px 0;}
+input[type=number] { width: 150px;}

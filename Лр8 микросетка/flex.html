@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>микросетка</title>
+        
+        <script>
+            function change(objName, min, max, step) {
+            var obj = document.getElementById(objName);
+            var tmp = +obj.value + step;
+            if (tmp<min) tmp=min;
+            if (tmp>max) tmp=max;
+            obj.value = tmp;
+            }
+            </script>
+            
+        <style>
+            .flex-container {
+                display: flex;
+                width:100%;           
+            }
+            .row {
+                flex-direction: row;
+            }
+            .flex-item {
+                text-align:left;
+                width: 30%;
+                padding: 2em;
+                color: rgb(73, 71, 71);
+                border: solid rgb(0, 0, 0) 2px; 
+            }
+            .color1 {background-color: #929292;}
+            .div3 {
+                width: 50%;
+                height: 450px;
+                background-image: url("картинки/фон.jpg");                	
+                background-size: 100% 100%;                
+            }
+            .div2{
+                position: relative;
+                /* для сдвига элемента вниз на 10px */
+                top: 70px; 
+                /* для сдвига элемента вправо на 20px */
+                left: 20px;
+            }
+            .div1{
+                width: 75%;
+                height: auto;
+            }
+            select { width: 240px; /* Ширина списка в пикселях */
+                     border-radius: 4px;}
+            input {border-radius: 4px;}/*скруглить края*/
+            textarea {border-radius: 4px;}
+            #amount {/* ширина поля */
+                width:8px;}
+            td {vertical-align: top; /* Выравнивание по верхнему краю ячеек */}
+            table{border: 1px solid rgb(225, 225, 225);}
+        </style>
+    </head>
+    <body>
+
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color1">Flex Item 2</div>
+            <div class="flex-item color1">Flex Item 3</div>
+        </div>
+
+        <div class="flex-container row">
+            <!--форма-->
+            <div class="div3 flex-item color1">
+
+                <div class="div2">
+                <form action="#" method="post" target="_blank" ></form>
+                <table>
+                    <tr height="40px"><td  width="40%"><label for="name">Ваше имя:</label></td>
+                        <td><input type="text" name="name" id="name" required size="30" placeholder="👨‍💼"> </td>
+                    </tr>
+                    <tr height="40px"><td><label for="email">Ваш email:</label></td>
+                        <td><input type="text" name="name" id="name" required size="30" placeholder="✉️"></td>
+                    </tr>
+                    <tr height="40px"><td><label for="theme">Тема:</label></td>
+                        <td><select id="courses" name="Проблем">
+                            <option value="computer_engineering">Проблема</option>
+                            <option value="slectrical_engineering">Electrical Engineering</option>
+                            <option value="mechanical_engineering">Mechanical Engineering</option>
+                            <option value="civil_engineering">Civil Engineering</option>
+                            <option value="chemical_engineering">Chemical Engineering</option>
+                        </select></td>
+                    </tr>
+                    <tr height="40px"><td><label for="message">Ваше <br>сообщение:</label></td>
+                        <td><textarea name="comment" placeholder="Здравствуйте," id="message" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr height="40px"><td><label for="number">Цифры:</label></td>
+                        <td><input type="number" name="age" id="number" min="0" max="125" size="30">
+                        <img src="картинки/1.jpg" height="30px" alt="Мое фото" class="img" ></td>
+                    </tr>
+                    <tr height="40px"><td></td>
+                        <td><button type="submit">Отправить письмо!</button></td>
+                    </tr>
+                </table>            
+
+                </div>
+            </div>
+            <!--конец формы-->
+            <div class="flex-item color1">Flex Item 5</div>
+            <div class="flex-item color1">Flex Item 6</div>
+        </div>
+
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex Item 7</div>
+            <!--фоторамка-->
+            <div class="flex-item div1">
+                <h1>Фоторамка настенная на 4 фото 10*15 коричневая</h1>
+                <table>
+                    <tr><td><img src="картинки/по акции.jpg" width="auto" height="35" class="img"></td>
+                        <td></td>
+                        <td><h2>&#9825;&nbsp;&nbsp;&nbsp;</h2></td>
+                        <td> <h3 style=color:yellow;>&#9733;&#9733;&#9733;&#9733;&#9733;</h3></td>
+                        <td></td>
+                        <td><font color="green">&#10004;</font>Есть в наличии</td>
+                    </tr>
+                    <tr><td></td>
+                        <td rowspan="4"><img src="картинки/фоторамка.jpg" width="250" height="auto"></td>
+                        <td></td>
+                        <td style="vertical-align: top;"><h4 style="color:red">9.90 руб.</h4><strike>19.90</strike></td>
+                        <td><br><input type="button" value="+" onClick="change('amount',0,10, 1);"/>
+                            <input id="amount" type="text" value="1"/>                            
+                            <input type="button" value="-" onClick="change('amount',0,10,-1);"/>
+                            <h5>Сумма:9.90 руб.</h5></td>
+                        <td>&nbsp;&nbsp;&nbsp;<button style="background:red; color:white; height: 40px; width: 110px;">&#128722; В корзину</button><br><br>
+                        &nbsp;&nbsp;&nbsp;<button style="background:white; color:red; height: 40px; width: 110px; border-color: red;">Купить в 1 клик</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"><button style="background:white; color:rgb(212, 24, 24); height: 40px; width: auto; border-color: rgb(212, 45, 45);">Нашли дешевле?</button></td>                       
+                        <td></td>
+                    </tr>                   
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="3"><img src="картинки/icons8-доставка-16.png" title="Доставка по Беларуси"><font style="color: grey; font-size:12px;">Доставка по Минску<br>
+                            Курьером-сегодня, стоимость:4руб.
+                            <img src="картинки/icons8-помощь-16.png" title="стоимость доставки"><br>
+                            Самовывоз из магазинов в Минске — сегодня, бесплатно.</font><br>
+                            <font style="color: rgb(183, 0, 0); font-size:12px;">О доставке по Беларуси.</font>
+                            <img src="картинки/icons8-помощь-16.png" title="Доставка по Беларуси"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="4"><img src="картинки/минирамка.jpg" height="70px"></td>
+                    </tr>
+                </table>
+            </div>
+            <!--конец фоторамки-->
+            <div class="flex-item color1">Flex Item 9</div>
+        </div>
+         
+        
+    </body>
+</html>

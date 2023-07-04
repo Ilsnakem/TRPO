@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Адаптивная верстка</title>
+        <style>
+        @media (min-width: 769px) /*комп*/
+        {
+            .grid-container { /*678910*/
+                display: grid;
+                grid-template-columns: 25% 50% 25%; /*столбцы*/
+                grid-template-rows: 10em 10em;
+            }
+            .header {
+                display: grid;
+                grid-template-columns: 100%;
+            }
+            .grid-container2 {/*2345*/
+                display: grid;
+                grid-template-columns: 25% 25% 25% 25%;
+                grid-template-rows: 10em;
+            }
+            .footer {
+                display: grid;
+                grid-template-columns: 100%;
+                
+            }
+            .special-item{
+                grid-column-start:2;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+        }
+        @media (min-width: 481px) and (max-width:768px) /*планшет*/
+        {
+            .grid-container {
+                    display: grid;
+                    grid-template-areas: "g6 g8"
+                                         "g7 g8"
+                                         "g9 g10";
+                    grid-template-columns: 40% 60%;
+                    grid-template-rows: 10em 10em 10em;
+            }
+            .g6 { grid-area: g6;}
+            .g7 { grid-area: g7;}
+            .g8 { grid-area: g8;}
+            .g9 { grid-area: g9;}
+            .g10 { grid-area: g10;}
+            .header {
+                display: grid;
+                grid-template-columns: 100%;
+            }
+            .grid-container2 {/*2345*/
+                display: grid;
+                grid-template-columns: 33% 34% 33%;
+                grid-template-rows: 10em;
+            }
+            .footer {
+                display: grid;
+                grid-template-columns: 100%;                
+            }
+            .si5{
+                visibility: hidden;
+                display: none;
+            }
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+        }
+        @media (max-width: 480px) /*mobile*/
+        {            
+            .grid-container {
+                    display: grid;
+                    grid-template-areas: "g6 g7"
+                                         "g8 g8"
+                                         "g8 g8"
+                                         "g9 g10";
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 10em 10em 10em 10em;
+            }
+            .g6 { grid-area: g6;}
+            .g7 { grid-area: g7;}
+            .g8 { grid-area: g8;}
+            .g9 { grid-area: g9;}
+            .g10 { grid-area: g10;}
+            .header {
+                display: grid;
+                grid-template-columns: 100%;
+            }
+            .grid-container2 {/*2345*/
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 10em 10em;
+            }
+            .footer {
+                display: grid;
+                grid-template-columns: 100%;                
+            }
+            
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+        }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #4e342e;}
+            .color6 {background-color: #ff6f00;}
+            a {
+                display: inline-block;
+                margin: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="grid-item color1"><img src="картинки/5.jpg" width="20%" alt="логотип" align="left">Header</div>
+            <div class="grid-item a color2">
+                <button>Menu</button>
+                <button>Главная</button>
+                <button>Регистрация</button>
+                <button>Отзывы</button>
+                <button>Личный кабинет</button></div>
+        </div>
+        <div class="grid-container2">
+            <div class="grid-item color5">2</div>
+            <div class="grid-item color6">3</div>
+            <div class="grid-item color3">4</div>
+            <div class="grid-item si5 color4">5</div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item g6 color1">6</div>
+            <div class="grid-item g8 color2 special-item">Сооружение имеет высоту 324 метра. 
+                К числу интересных фактов о Эйфелевой башне можно отнести сезонное изменение высоты символа Парижа. 
+                Летом башня прибавляет в росте 18 см, вследствие расширения металла при высоких температурах.
+                С 1899 года подъем на вершину Эйфелевой башни стал возможен на лифтах. 
+                В годы оккупации (1941-1944) жители Парижа специально привели в негодность работу башенных лифтов.</div>
+            <div class="grid-item g9 color3">9</div>
+            <div class="grid-item g7 color5">7</div>
+            <div class="grid-item g10 color5">10</div> 
+        </div> 
+        <div class="footer">
+            <div class="grid-item a color6">
+                <a href="https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663088120_52-mykaleidoscope-ru-p-eifeleva-bashnya-dostoprimechatelnosti-57.jpg" target="_blank" position="relative" left="75px">Башня</a>
+                <a href="https://mobimg.b-cdn.net/v3/fetch/17/1775eee3b044f916397e16adf4750cbb.jpeg" target="_blank">Эйфелева башня</a>
+                <a href="https://searchthisweb.com/wallpaper/thumb1000/main1000_eiffel-tower_3540x2655_dqf3a.jpg" target="_blank">ЭБ</a>
+                <a href="#"><img src="картинки/4.png" width="50" height="50" alt="Наверх" style="float:right"></a></div>
+        </div>
+    </body>
+</html>

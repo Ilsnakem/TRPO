@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Мой HTML документ</title>
+  <style>
+    /* Стили для ссылки */
+    a {
+      color: initial; /* Исходный цвет текста */
+      text-decoration: none; /* Убираем подчеркивание */
+      font-size: 16px; /* Исходный размер шрифта */
+      transition: color 0.3s, font-size 0.3s; /* Плавный переход */
+    }
+
+    /* Стили для ссылки при наведении */
+    a:hover {
+      color: green; /* Зеленый цвет текста */
+      font-size: 32px; /* Увеличение размера шрифта в 2 раза */
+    }
+  </style>
+</head>
+<body>
+  <h1>1. Фамилия Имя Отчество</h1>
+  <p>Введите вашу фамилию, имя и отчество:</p>
+  <input type="text" id="name-input">
+
+  <h2>2. Ссылка на любимый сайт</h2>
+  <p>Введите ссылку на ваш любимый сайт:</p>
+  <input type="text" id="website-input">
+
+  <h3>3. Любое изображение</h3>
+  <p>Введите URL изображения:</p>
+  <input type="text" id="image-url-input">
+
+  <h4>Предпросмотр:</h4>
+  <div id="preview">
+    <!-- Здесь будет отображаться предпросмотр введенных данных -->
+  </div>
+
+  <button id="width-button">Получить ширину страницы</button>
+
+  <div id="width-message"></div>
+  
+  <button id="browser-info-button">Получить информацию о браузере</button>
+
+  <script>
+    // Обработчик изменения полей ввода
+    function updatePreview() {
+      const name = document.getElementById("name-input").value;
+      const website = document.getElementById("website-input").value;
+      const imageUrl = document.getElementById("image-url-input").value;
+
+      const preview = document.getElementById("preview");
+      preview.innerHTML = `
+        <p>1. Фамилия Имя Отчество: ${name}</p>
+        <p>2. Ссылка на любимый сайт: <a href="${website}" target="_blank">${website}</a></p>
+        <p>3. Любое изображение:</p>
+        <img src="${imageUrl}" alt="Изображение">
+      `;
+    }
+
+    // Назначение обработчика события на изменение полей ввода
+    const inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener("input", updatePreview);
+    }
+
+    // Обработчик события нажатия на кнопку
+    const widthButton = document.getElementById("width-button");
+    widthButton.addEventListener("click", function () {
+      const documentWidth = document.documentElement.clientWidth;
+      const widthMessage = document.getElementById("width-message");
+      widthMessage.textContent = "Ширина документа: " + documentWidth + "px";
+    });
+// Вывод информации через 5 секунд
+setTimeout(() => {
+  const documentWidth = document.documentElement.clientWidth;
+      const widthMessage = document.getElementById("width-message");
+      widthMessage.textContent = "Ширина документа: " + documentWidth + "px";
+}, 5000);
+// Обработчик события нажатия на кнопку "Получить информацию о браузере"
+    const browserInfoButton = document.getElementById("browser-info-button");
+    browserInfoButton.addEventListener("click", function () {
+      const browserInfoInterval = setInterval(function () {
+        const browserInfo = "Тип браузера: " + navigator.userAgent;
+        const newWindow = window.open("", "_blank");
+        newWindow.document.write("<p>" + browserInfo + "</p>");
+        newWindow.focus();
+      }, 4000);
+
+      // Остановка повторного открытия окна через 20 секунд
+      setTimeout(function () {
+        clearInterval(browserInfoInterval);
+      }, 20000);
+    });
+    // Создание копии узла №3 и вставка ее после узла №1
+    const node3 = document.getElementById("node3"); // Замените "node3" на соответствующий идентификатор вашего узла №3
+    const node1 = document.getElementById("node1"); // Замените "node1" на соответствующий идентификатор вашего узла №1
+
+    const node3Copy = node3.cloneNode(true);
+    node1.parentNode.insertBefore(node3Copy, node1.nextSibling);
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+body {
+	background-image: url("1.jpg");
+	
+	font-family: "Arial";
+	font-size: 25mm; /*размер шрифта*/
+	color: blue;
+}
+h3 {
+	background-color: red;
+	width: 5cm;
+	height: 10cm;
+	text-align: center; /*выравнивание текста по центру*/
+}
+a {
+	color: red;
+}
+a:hover {
+	color: green;
+	text-decoration: none; /*неподчёркнутый текст*/
+}

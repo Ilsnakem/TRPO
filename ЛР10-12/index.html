@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>Javascript</title>
+	<script src="calculating.js"></script>
+    <!--Задание 1-->
+    <script>
+		function getCurrentYear() {
+			var currentYear = new Date().getFullYear();
+			alert("Текущий год: " + currentYear);
+		}
+	</script>
+</head>
+<body>
+	<button onclick="getCurrentYear()">Показать год</button>
+    <br>
+    <!--Задание 2-->
+    <h1>Вывод фамилии</h1>
+    <script>     
+        //Вывод фамилии n+5 раз   
+        var i = 0;        
+        while (i < 20) 
+        {            
+            document.write('Фурман Никита<br>');            
+            i++;
+        }    
+    </script>
+    <!--Задание 3-->
+    <h1>Массив</h1>
+    <script type="text/Javascript">
+        //Массив
+        var arr=[1,2,-3,4,-5,6,-7,8,-9,10];//создание массива
+        document.write('Отрицательные элементы массива:')
+        for(var i=0; i<arr.length; i++)
+        {
+            if (arr[i]<0)
+            {document.write(arr[i]+" ")}
+        }
+    </script>
+    <!--Задание 4-->
+    <h1>Функция</h1>
+    <p>Результат расчета при a < 0 и с!=0: <b>F=</b><span id="results1"></span></p>
+    <p>Результат расчета при a > 0 и с=0: <b>F=</b> <span id="results2"></span></p>
+    <p>Результат расчета при остальных условиях: <b>F=</b><span id="results3"></span></p>
+    <script> 
+        const a = -2;         
+        const b = 1;
+        const c = 1;
+        const x = 5; 
+        document.getElementById("results1").innerHTML = calculate(a, b, c, x);          
+        const a1 = 10; 
+        const c1=0;
+        document.getElementById("results2").innerHTML = calculate(a1, b, c1, x); 
+        const a2 = 0; 
+        const c2 = 1;
+        document.getElementById("results3").innerHTML = calculate(a2, b, c2, x); 
+    </script>
+    <!--Задание 5-->
+    <h1>Работа со строками</h1>
+    <script>
+        const s1 = 'Фурман Никита';
+        const s2 = 'учусь в политехническом колледже';
+        const lengthOfStringS1 = s1.length;
+        const s3 = s1 + ', ' + s2;
+        const s4 = s1.toUpperCase();
+        document.write(`Строка s1: ${s1};<br>`);
+        document.write(`Длина строки s1: ${lengthOfStringS1};<br>`);
+        document.write(`Строка s2: ${s2};<br>`);
+        document.write(`Сцепление строк s1 и s2: ${s3};<br>`);
+        document.write(`Строка s1 в верхнем регистре: ${s4}.`);
+    </script>
+</body>
+</html>
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>микросетка</title>
+        <style>
+            .flex-container {
+                display: flex;
+                width:100%;           
+            }
+            .row {
+                flex-direction: row;
+            }
+            .flex-item {
+                text-align:left;
+                width: 30%;
+                padding: 3em;
+                color: rgb(73, 71, 71);
+                border: solid rgb(0, 0, 0) 2px; 
+            }
+            .color1 {background-color: #929292;}
+            .div1{height: auto;
+                width: 80%;
+                background-color:rgb(16, 221, 253);
+                color:aliceblue;
+                font-family: 'Courier New', Courier, monospace;}
+            td {vertical-align: top; /* Выравнивание по верхнему краю ячеек */
+                }
+            table{table-layout: auto;
+            line-height: 2.5;}
+            .div2{height: auto;
+                width: 30%;
+                background-color:rgb(255, 255, 255);
+                font-family: 'Courier New', Courier, monospace;
+                padding: 1em;}
+            .i1{float:right}
+        </style>
+    </head>
+    <body>
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color1">Flex Item 2</div>
+            <div class="flex-item color1">Flex Item 3</div>
+        </div>
+
+        <div class="flex-container row">
+            <!--форма-->
+            <div class="flex-item div1">
+                <h1>Contact form</h1>
+                <h5>Please fill in your information and we'll be sending your order in no time.</h5><br><br>
+                <form action="#" method="post" target="_blank" >                    
+                    <table>
+                        <tr><td><label for="name">Your Name</label></td>                           
+                            <td><input type="text" placeholder="First Name" name="name" id="name" required size="30">
+                                <input type="text" placeholder="Last Name" name="name" id="name" required size="30"></td>
+                        </tr>
+                        <tr><td><label for="email">Your Email</label></td>                           
+                            <td><input type="text" required size="67" placeholder="e.g.hello@contact.net"></td>
+                        </tr>
+                        <tr><td><label for="number">Phone*</label></td>                            
+                            <td><input type="text" name="number"id="number" required size="17" placeholder="###">
+                                <input type="text" name="number"id="number" required size="18" placeholder="###">
+                                <input type="text" name="number"id="number" required size="18" placeholder="###"></td>
+                        </tr>
+                        <tr><td nowrap><label for="name">Message Subject*</label></td>
+                            <td><textarea name="comment" id="message" cols="62,5" rows="5"></textarea></td>  
+                        </tr>
+                        <tr><td><label for="name">Verification*</label></td>
+                            <td><img src="images/nr.png" width="40%"></td>  
+                        </tr>  
+                    </table>
+                    <hr size=3px width=700px align="left">   
+                    <button style="color:aliceblue;background-color:rgb(16, 221, 253);border-radius: 5px;border-color: aliceblue;width: 120px;height: 40px;">Submit</button>                 
+                </form>
+            </div>
+            <!--конец формы-->
+            <div class="flex-item color1">Flex Item 5</div>
+            <div class="flex-item color1">Flex Item 6</div>
+        </div>
+
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex Item 7</div>
+            <!--карточка товара-->
+            <div class="flex-item color1 div2">
+                <h1><span>&#9825;</span>
+                <span class="i1">&#128722;</span></h1>
+                <img src="images/лента.jpg" width="400px">
+                <h4 style="text-align: center;color: #929292;">Потолочные светильники</h4>
+                <h3 style="text-align: center;color: #929292;">Светодиодная RGB лента Таро L920-5</h3>
+                <h3 style="text-align: center;color: #929292;">Супер цена:<span style="color: rgb(255, 0, 0);">199<sup>.00</sup></span><span><s>242<sup>.68</sup></s></span></h3>
+                <img src="images/карта.jpg" width="50px">
+                <span>Вернем до 7<sup>.28</sup>&nbsp;на&nbsp;</span><span style="text-decoration: none;  border-bottom: 1px dashed #000080;">бонусную карту</span>               
+                <h5 style="color: #929292;text-align: center;">*тип рассрочки при которой скидка не действует</h5>
+            </div>
+            <!--конец карточки товара-->
+            <div class="flex-item color1">Flex Item 9</div>
+        </div>
+
+    </body>
+</html>
