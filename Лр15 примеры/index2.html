@@ -1,0 +1,121 @@
+<html>
+<head>
+<style type='text/css'>
+#block {
+    height: 360px;
+    width: auto;
+    border: 2px dotted #f00;
+}
+p {
+    text-indent: 40px;
+    padding-left: 20px;
+}
+#par1
+{
+color:black;
+cursor:pointer;
+}
+
+</style>
+<script type='text/javascript'>
+    function go(){
+       document.location.assign('http://www.wisdomweb.ru');
+    }
+</script>    
+<script type='text/javascript'>
+function dispMes(event)
+{
+document.getElementById('par').style.display='block';
+document.getElementById('resultx').innerHTML=event.clientX;
+document.getElementById('resulty').innerHTML=event.clientY;
+}
+</script>
+<script type='text/javascript'>
+    function start(){
+       document.getElementById('par1').style.color='red';
+    }
+    function stop(){
+       document.getElementById('par1').style.color='black';
+    }
+    </script>
+    <script type="text/javascript">
+        function timeMsg()
+        {
+        var t=setTimeout("alertMsg()",3000);
+        }
+        function alertMsg()
+        {
+        alert("Привет");
+        }
+        </script>
+  <script type="text/javascript">
+    var c=0;
+    var t;
+    var timer_is_on=0;
+    
+    function timedCount()
+    {
+    document.getElementById('txt').value=c;
+    c=c+1;
+    t=setTimeout("timedCount()",1000);
+    }
+    
+    function doTimer()
+    {
+    if (!timer_is_on)
+      {
+      timer_is_on=1;
+      timedCount();
+      }
+    }
+    function stopTimer(){
+        clearTimeout(t);
+        timer_is_on=0;
+    }
+    </script> 
+        <script type="text/javascript">
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// добавить нуль перед числами <10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+  
+</head>
+<body onclick='dispMes(event)'>
+    <input type='button' value='Перейти на главную страницу нашего сайта' onclick='go()'/>
+<div id='block'><p>Щелкните в любом месте правого окна редактора.</p>
+<p id='par' style='display:none;' >Щелчок мыши был произведен по координатам: 
+<b><span id='resultx'> </span></b> пикс. по горизонтали от левой границы окна и <br />
+<b><span id='resulty'> </span></b> пикс. по вертикали от верхней границы окна.</p>
+</div>
+<p id='par1' onmouseover='start()' onmouseout='stop()'>Наведите на меня курсор мыши.</p>
+<form>
+    <input type="button" value="Показать сигнальное окно через 3 секунды" onClick="timeMsg()" />
+    </form>
+    <form>
+        <input type="button" value="Начать отсчет!" onClick="doTimer()">
+        <input type="text" id="txt">
+        <input type="button" value="Прекратить отсчет!" onClick="stopTimer()">
+        </form>
+        <p>Щелкните на кнопке выше. Поле ввода начнет отсчет до бесконечности, начиная с 0.</p>
+     
+        
+</body>
+</html>

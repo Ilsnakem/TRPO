@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Форма обратной связи</title>
+</head>
+<body>
+    <h1>Форма обратной связи</h1>
+    <form id="feedback-form" method="post">
+        <label for="name">Введите ваше имя:</label><br>
+        <input type="text" id="name" name="name" required pattern="[A-Za-zА-Яа-яЁё\s]{3,100}" placeholder="Например Иван Иванович"><br><br>
+
+        <label for="email">Введите адрес Email:</label><br>
+        <input type="email" id="email" name="email" required placeholder="Например ivan@mail.ru"><br><br>
+
+        <label for="message">Введите сообщение:</label><br>
+        <textarea id="message" name="message" rows="5" required minlength="20" maxlength="500" placeholder="Введите сообщение от 20 до 500 символов"></textarea><br><br>
+
+        <img id="captcha-image" src="C:\Users\Asus\Desktop\captcha.jpg" alt="Captcha Image" width="100px" height="auto"><br><br>
+        <button type="button" id="refresh-captcha">Обновить</button><br>
+        <label for="captcha">Текст на изображении:</label><br>
+
+        <input type="text" id="captcha" name="captcha" required><br>
+        <p id="captcha-error" style="color: red; display: none;">Неверная капча. Пожалуйста, попробуйте еще раз.</p><br>
+
+        <input type="submit" value="Отправить">
+    </form>
+    
+    <script>
+        const form = document.getElementById('feedback-form');
+        const captchaImage = document.getElementById('captcha-image');
+        const refreshButton = document.getElementById('refresh-captcha');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const captchaInput = document.getElementById('captcha');
+        const captchaError = document.getElementById('captcha-error');
+
+        // Обновление капчи при нажатии на кнопку
+        refreshButton.addEventListener('click', function () {
+            captchaImage.src = "generate-captcha.php?" + Date.now(); // Добавляем случайный параметр для обновления изображения
+            captchaError.style.display = 'none';
+        });
+
+        form.addEventListener('submit', function (e) {
+            if (!form.checkValidity() || !validateCaptcha()) {
+                e.preventDefault();
+                captchaError.style.display = 'block';
+            } else {
+                captchaError.style.display = 'none';
+                // Получение значений из полей формы
+                const name = nameInput.value;
+                const email = emailInput.value;
+                const message = messageInput.value;
+                const captcha = captchaInput.value;
+
+                // Создание объекта JSON
+                const formData = {
+                    name: name,
+                    email: email,
+                    message: message,
+                    captcha: captcha
+                };
+
+                // Преобразование в JSON строку
+                const formDataJSON = JSON.stringify(formData);
+
+                // Сохранение данных в localStorage
+                localStorage.setItem('formData', formDataJSON);
+
+                // Вывод значений в alert
+                const alertMessage = `Имя: ${name}\nEmail: ${email}\nСообщение: ${message}\nКапча: ${captcha}`;
+                alert(alertMessage);
+
+                // Добавьте здесь код для отправки данных на сервер
+            }
+        });
+
+        // Проверка и вывод данных из localStorage при загрузке страницы
+        const formDataJSON = localStorage.getItem('formData');
+        if (formDataJSON) {
+            const formData = JSON.parse(formDataJSON);
+            nameInput.value = formData.name;
+            emailInput.value = formData.email;
+            messageInput.value = formData.message;
+            captchaInput.value = formData.captcha;
+        }
+
+        // Валидация капчи с помощью регулярного выражения (например, должна содержать только буквы и цифры)
+        function validateCaptcha() {
+            const captchaValue = captchaInput.value;
+            const captchaPattern = /^[A-Za-z0-9]*$/;
+            return captchaPattern.test(captchaValue);
+        }
+    </script>
+</body>
+</html>

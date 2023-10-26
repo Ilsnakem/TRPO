@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <style>
+        body *{
+            margin:10px;
+            border:1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <input value="Нажми меня" onclick="alert('Клик!')" type="button">
+    <input type="button" onclick="countRabbits()" value="Считать кроликов">
+    <input id="elem" type="button" value="Нажми меня">
+    <button oncklick="alert(this.innerHTML)">Нажми меня</button>
+    <input id="elem2" type="button" value="Нажми меня"/>
+    <form onclick="alert('form')">FORM
+        <div onclick="alert('div')">DIV
+            <p onclick="alert('p')">P</p>
+        </div>
+    </form>
+    <button onclick="event.stopPropagation()">Кликни меня</button>
+    <script src="./js.js"></script>
+</body>
+</html>

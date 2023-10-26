@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="1.css" />
+    <title>Форма</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+    <div class="container">
+        <form id="form" class="form" action="/feedback/" method="post" >
+            <h2>Регистрация</h2>
+            <div class="form-control">
+                <label for="username">Имя</label>
+                <input type="text" id="username" placeholder="Введите здесь Ваше имя"/>
+                <small>Сообщение об ошибке</small>
+            </div>
+            <div class="form-control">
+                <label for="email" >Почта</label>
+                <p id="message" style="color:rgb(255, 0, 0)"></p> 
+                <input type="text" id="email" name="email" size="20" placeholder="Введите Вашу почту" />
+                
+                
+            </div>
+          
+            <div>
+                <input type="checkbox" id="one" name="co" value="Все уведомления">Присылать все уведомления<br>
+                <input type="checkbox" id="two" name="co" value="Только новости">Присылать только новости<br>
+                <input type="checkbox" id="three" name="co" value="Акции и скидки">Присылать только акции и скидки<br>
+            </div><br>
+            <div class="form-control">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" value="" placeholder="Введите Ваш пароль" />
+                <p id="pswdError"></p>
+                    
+            </div>
+            <div class="form-control">
+                <label for="password2">Подтверждение пароля</label>
+                <input type="password" id="password2" placeholder="Введите пароль снова" />
+                <small>Сообщение об ошибке</small>
+            </div>
+            <div class="form-control">
+                <label for="country">Страна</label>
+                <select name="country" id="country" required>
+                  <option>Выберите страну проживания</option>
+                  <option value="Россия">Россия</option> 
+                  <option value="Украина">Украина</option> 
+                  <option value="Беларусь">Беларусь</option> 
+                </select> 
+                <div class="select-arrow"></div> 
+              </div> 
+              <div class="radio" id="my_id">
+                Пол
+                <br>
+                <label>
+                  <input type="radio" class="get_value" name="c" value="мужской" id="id_1">мужской
+                  <div class="g"></div>
+                </label>
+                <label>
+                  <input type="radio" class="get_value" name="c" value="женский" id="id_2">женский
+                  <div class="g"></div>
+                </label>
+              </div><br>
+            <div class="form-control">
+                <label>Дополнительно</label>
+                <textarea id="bio" name="student_bio" placeholder="Расскажите немного о себе"></textarea>
+            </div>
+            <button name = "button" type="submit" onclick="">Отправить</button>
+        </form>
+        
+    </div>
+    
+    
+   <script>
+        document.getElementById("form").addEventListener("submit", function(event){
+          event.preventDefault()
+          var username = document.getElementById("username").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var password2 = document.getElementById("password2").value;
+            var bio=document.getElementById("bio").value;
+            alert("Имя: " + username + "\nПочта: " + email+ "\nПароль: " + password+ "\nПароль2: " + password2);
+            /*чекбокс*/
+            checkbox = document.getElementsByName("co");
+            var str = "";
+            for(var i=0; i<checkbox.length; i++){
+            if(checkbox[i] . checked) {str+="Присылать:"+checkbox[i].value+" ";}
+            }
+            alert(str);
+            /*селект*/
+            if( country .value)
+            {
+            alert("Страна: " + country .value );
+            }else{}
+            /*радиобаттон*/
+            checkbox = document.getElementsByName("c");
+            var str = "";
+            for(var i=0; i<checkbox.length; i++){
+            if(checkbox[i] . checked) {str+="Пол:"+checkbox[i].value+" ";}
+            }
+            alert(str);
+
+            alert("Дополнительно: " + bio);
+            });
+        </script> 
+      
+</body>
+</html>

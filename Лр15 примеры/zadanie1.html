@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+window.onload = function() {
+  alert("Добро пожаловать в задание 1");
+
+  // id=but1 changes color to green
+  document.getElementById('but1').onclick = function() {
+    document.getElementById('par1').style.color = 'green';
+  }
+  
+  // id=but2 changes color to red
+  document.getElementById('but2').ondblclick = function() {
+    document.getElementById('par2').style.color = 'red';
+  }
+
+  // reset color on mouseover
+  document.getElementById('par1').onmouseover = function() {
+    this.style.color = '';
+  }
+  
+  document.getElementById('par2').onmouseover = function() {
+    this.style.color = '';
+  }
+  
+  // Add green border
+  document.getElementById('but3').onclick = function() {
+    document.getElementById('par1').style.border = '1px solid green';
+    document.getElementById('par2').style.border = '1px solid green';
+  }
+  
+  // Add red border
+  document.getElementById('but4').ondblclick = function() {
+    document.getElementById('par1').style.border = '1px solid red';
+    document.getElementById('par2').style.border = '1px solid red';
+  }
+}
+
+window.onbeforeunload = function() {
+  return "Вы покидаете задание 1";
+}
+</script>
+</head>
+<body>
+<button id="but1">Button 1</button>
+<p id="par1">Paragraph 1</p>
+
+<button id="but2">Button 2</button>
+<p id="par2">Paragraph 2</p>
+
+<button id="but3">Button 3</button>
+<button id="but4">Button 4</button>
+</body>
+</html>
