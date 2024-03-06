@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Форма с данными</title>
+<script>
+function saveData() {
+    var fio = document.getElementById('fio').value;
+    var email = document.getElementById('email').value;
+    var birthplace = document.getElementById('birthplace').value;
+    var hobbies = document.getElementById('hobbies').value;
+    
+    // Сохранение данных в cookie
+    document.cookie = `userDataCookie=${JSON.stringify({fio, email, birthplace, hobbies})}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+    
+    // Сохранение данных в localStorage
+    localStorage.setItem('userDataLocalStorage', JSON.stringify({fio, email, birthplace, hobbies}));
+    
+    // Сохранение данных в JSON файл
+    var userDataJSON = JSON.stringify({fio, email, birthplace, hobbies});
+    var blob = new Blob([userDataJSON], {type: "application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'userData.json';
+    a.click();
+}
+
+function loadData() {
+    // Загрузка данных из cookie
+    var cookieData = document.cookie.replace(/(?:(?:^|.*;\s*)userDataCookie\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    if(cookieData) {
+        var userData = JSON.parse(cookieData);
+        document.getElementById('fio').value = userData.fio;
+        document.getElementById('email').value = userData.email;
+        document.getElementById('birthplace').value = userData.birthplace;
+        document.getElementById('hobbies').value = userData.hobbies;
+    }
+    
+    // Загрузка данных из localStorage
+    var localStorageData = localStorage.getItem('userDataLocalStorage');
+    if(localStorageData) {
+        var userDataLocalStorage = JSON.parse(localStorageData);
+        document.getElementById('fio').value = userDataLocalStorage.fio;
+        document.getElementById('email').value = userDataLocalStorage.email;
+        document.getElementById('birthplace').value = userDataLocalStorage.birthplace;
+        document.getElementById('hobbies').value = userDataLocalStorage.hobbies;
+    }
+}
+
+function clearData() {
+    // Очистка данных из cookie
+    document.cookie = 'userDataCookie=; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+    
+    // Очистка данных из localStorage
+    localStorage.removeItem('userDataLocalStorage');
+}
+
+</script>
+</head>
+<body>
+<h1>Форма с данными</h1>
+<form>
+<label>ФИО:</label><br>
+<input type="text" id="fio"><br><br>
+<label>Электронная почта:</label><br>
+<input type="email" id="email"><br><br>
+<label>Место рождения:</label><br>
+<input type="text" id="birthplace"><br><br>
+<label>Увлечения:</label><br>
+<input type="text" id="hobbies"><br><br>
+<button type="button" onclick="saveData()">Сохранить данные</button>
+
+
+<button type="button" onclick="loadData()">Загрузить данные</button>
+<button type="button" onclick="clearData()">Очистить данные</button>
+</form>
+</body>
+</html>
